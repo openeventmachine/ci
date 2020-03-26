@@ -4,6 +4,7 @@ SPDX-License-Identifier: BSD-3-Clause
 
 *** Settings ***
 Library    Process
+Library    Collections
 Suite Teardown    Terminate All Processes    kill=True
 
 *** Variables ***
@@ -23,6 +24,8 @@ Suite Teardown    Terminate All Processes    kill=True
 @{do_not_match} =
 ...    EM ERROR
 
+@{rc_list} =    ${0}    ${-2}
+
 *** Test Cases ***
 Test Timer Hello
     [Documentation]    timer_hello -c ${core_mask} -${mode}
@@ -33,7 +36,7 @@ Test Timer Hello
     ${output} =    Wait For Process    app    timeout=5s    on_timeout=kill
     Log    ${output.stdout}    console=yes
     Process Should Be Stopped    app
-    Should Be Equal As Integers    ${output.rc}   -2    Return Code: ${output.rc}
+    List Should Contain Value    ${rc_list}    ${output.rc}    Return Code: ${output.rc}
 
     :FOR    ${line}    IN    @{match}
     \    Should Match Regexp    ${output.stdout}    ${line}

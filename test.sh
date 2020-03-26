@@ -1,12 +1,27 @@
 #!/bin/bash
 set -e
 
-# Hugepages
+# x86_64
 if [[ $(lscpu | grep x86_64) ]]; then
-sudo sysctl -w vm.nr_hugepages=512
-sudo mkdir -p /mnt/hugepages
-sudo mount -t hugetlbfs -o pagesize=2M none /mnt/hugepages
-cat /proc/meminfo | grep Huge
+  # Hugepages
+  sudo sysctl -w vm.nr_hugepages=512
+  cat /proc/meminfo | grep Huge
+fi
+
+# aarch64
+if [[ $(lscpu | grep aarch64) ]]; then
+  # No Hugepages
+  # https://travis-ci.community/t/huge-pages-support-within-lxd/5615/2
+
+  # Robot Framework Issue
+  # https://github.com/robotframework/robotframework/issues/2940
+  sed -i "s/-2/-9/" ci/event_group.robot
+  sed -i "s/-2/-9/" ci/event_group_chaining.robot
+  sed -i "/Done/d" ci/event_group.robot
+  sed -i "/Done/d" ci/event_group_chaining.robot
+
+  # Sleep Longer
+  sed -i "s/15s/30s/" ci/*.robot
 fi
 
 # CI Variables
@@ -46,7 +61,9 @@ done
 for app in ${!apps[@]}; do
   for ((i=0; i<${#core_masks[@]}; i++)); do
     for ((j=0; j<${#modes[@]}; j++)); do
-      sudo robot --variable application:"${apps[${app}]}" \
+      sudo ODP_CONFIG_FILE=${PWD}/ci/odp-linux-generic.conf \
+	   EM_CONFIG_FILE=${PWD}/ci/em-odp.conf \
+	   robot --variable application:"${apps[${app}]}" \
                  --variable core_mask:"${core_masks[$i]}" \
                  --variable mode:"${modes[$j]}" \
                  --log NONE --report NONE --output NONE \
