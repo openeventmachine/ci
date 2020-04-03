@@ -9,7 +9,7 @@ Suite Teardown    Terminate All Processes    kill=True
 
 *** Variables ***
 @{match} =
-...    Cycles/Event:\\s*[0-9]+\\s*Events/s:\\s*[0-9]+\\.[0-9]+\\s*M\\s*Latency:\\s*Hi-prio=[0-9]+\\s*Lo-prio=[0-9]+\\s*@[0-9]+\\s*MHz\\([0-9]+\\)
+...    Cycles/Event:\\s*[1-9]+[0-9]*\\s*Events/s:\\s*(?=.*[1-9])[0-9]+(\.[0-9]+)\\s*M\\s*Latency:\\s*Hi-prio=[1-9]+[0-9]*\\s*Lo-prio=[1-9]+[0-9]*\\s*@[1-9]+[0-9]*\\s*MHz\\([0-9]+\\)
 
 @{do_not_match} =
 ...    EM ERROR

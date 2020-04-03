@@ -10,15 +10,15 @@ Suite Teardown    Terminate All Processes    kill=True
 *** Variables ***
 @{match} =
 ...    EO *
-...    System has [0-9]+ timer
-...    resolution. [0-9]+ ns
-...    max_tmo. [0-9]+ ms
-...    num_tmo. [0-9]+
-...    tick Hz. [0-9]+ hz
+...    System has [1-9]+[0-9]* timer
+...    resolution. [1-9]+[0-9]* ns
+...    max_tmo. [1-9]+[0-9]* ms
+...    num_tmo. [1-9]+[0-9]*
+...    tick Hz. [1-9]+[0-9]* hz
 ...    EO local start
-...    [0-9]+\. tick
+...    [1-9]+[0-9]*\. tick
 ...    tock
-...    Meditation time. what can you do in [0-9]+ ms\?
+...    Meditation time. what can you do in [1-9]+[0-9]* ms\?
 ...    Done\\s*-\\s*exit
 
 @{do_not_match} =

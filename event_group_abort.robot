@@ -10,11 +10,11 @@ Suite Teardown    Terminate All Processes    kill=True
 *** Variables ***
 @{match} =
 ...    Round [0-9]+
-...    Created\\s*[0-9]+\\s*event\\s*group\\(s\\)\\s*with\\s*count\\s*of\\s*[0-9]+
-...    Abort\\s*group\\s*when\\s*received\\s*[0-9]+\\s*events
-...    Evgrp\\s*events:\\s*Valid:[0-9]+\\s*Expired:[0-9]+
-...    Evgrp\\s*increments:\\s*Valid:[0-9]+\\s*Failed:[0-9]+
-...    Evgrp\\s*assigns:\\s*Valid:[0-9]+\\s*Failed:[0-9]+
+...    Created\\s*[1-9]+[0-9]*\\s*event\\s*group\\(s\\)\\s*with\\s*count\\s*of\\s*[1-9]+[0-9]*
+...    Abort\\s*group\\s*when\\s*received\\s*[1-9]+[0-9]*\\s*events
+...    Evgrp\\s*events:\\s*Valid:[1-9]+[0-9]*\\s*Expired:[1-9]+[0-9]*
+...    Evgrp\\s*increments:\\s*Valid:[1-9]+[0-9]*\\s*Failed:[1-9]+[0-9]*
+...    Evgrp\\s*assigns:\\s*Valid:[1-9]+[0-9]*\\s*Failed:[1-9]+[0-9]*
 ...    Aborted\\s*[0-9]+\\s*event\\s*groups
 ...    Failed\\s*to\\s*abort\\s*[0-9]+\\s*times
 ...    Received\\s*[0-9]+\\s*notification\\s*events

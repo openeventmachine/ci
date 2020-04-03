@@ -11,10 +11,9 @@ Suite Teardown    Terminate All Processes    kill=True
 @{match} =
 ...    Start\\s*event\\s*group
 ...    Start\\s*assigned\\s*event\\s*group\\s*
-...    Assigned\\s*event\\s*group\\s*notification\\s*event\\s*received\\s*after\\s*[0-9]+\\s*data\\s*events\\.
-...    Cycles\\s*curr:[0-9]+,\\s*ave:[0-9]+
+...    Assigned\\s*event\\s*group\\s*notification\\s*event\\s*received\\s*after\\s*[1-9]+[0-9]*\\s*data\\s*events\\.
 ...    "Normal"\\s*event\\s*group\\s*notification\\s*event\\s*received\\s*after\\s*2048\\s*data\\s*events\\.
-...    Cycles\\s*curr:[0-9]+,\\s*ave:[0-9]+
+...    Cycles\\s*curr:[1-9]+[0-9]*,\\s*ave:[0-9]+
 ...    Chained\\s*event\\s*group\\s*done
 ...    Done\\s*-\\s*exit
 

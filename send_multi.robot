@@ -9,9 +9,9 @@ Suite Teardown    Terminate All Processes    kill=True
 
 *** Variables ***
 @{match} =
-...    Number\\s*of\\s*queues:\\s*[0-9]+
-...    Number\\s*of\\s*events:\\s*[0-9]+
-...    [0-9]+\\s*[0-9]+\\.[0-9]+\\s*M\\s*[0-9]+\\s*[0-9]+\\s*[0-9]+\\s*[0-9]+\\s*[0-9]+\\s*MHz\\s*[0-9]+
+...    Number\\s*of\\s*queues:\\s*[1-9]+[0-9]*
+...    Number\\s*of\\s*events:\\s*[1-9]+[0-9]*
+...    [1-9]+[0-9]*\\s*(?=.*[1-9])[0-9]+(\.[0-9]+)\\s*M\\s*[1-9]+[0-9]*\\s*[1-9]+[0-9]*\\s*[1-9]+[0-9]*\\s*[1-9]+[0-9]*\\s*[1-9]+[0-9]*\\s*MHz\\s*[0-9]+
 ...    Done\\s*-\\s*exit
 
 @{do_not_match} =

@@ -10,7 +10,7 @@ Suite Teardown    Terminate All Processes    kill=True
 *** Variables ***
 @{match} =
 ...    Created\\s*test\\s*queue:0x[a-fA-F0-9]+\\s*type:[A-Z]+\\([0-9]+\\)\\s*queue\\s*group:0x[a-fA-F0-9]+\\s*\\(name:"[a-zA-Z0-9]+"\\)
-...    Received\\s*[0-9]+\\s*events\\s*on\\s*Q:0x[a-fA-F0-9]+:
+...    Received\\s*[1-9]+[0-9]*\\s*events\\s*on\\s*Q:0x[a-fA-F0-9]+:
 ...    QueueGroup:0x[a-fA-F0-9]+,\\s*Curr\\s*Coremask:0x[a-fA-F0-9]+
 ...    Now\\s*Modifying:
 ...    QueueGroup:0x[a-fA-F0-9]+,\\s*New\\s*Coremask:0x[a-fA-F0-9]+

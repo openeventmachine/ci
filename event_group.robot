@@ -11,7 +11,7 @@ Suite Teardown    Terminate All Processes    kill=True
 @{match} =
 ...    Start\\s*event\\s*group
 ...    Event\\s*group\\s*notification\\s*event\\s*received\\s*after\\s*256\\s*data\\s*events\\.
-...    Cycles\\s*curr:[0-9]+,\\s*ave:[0-9]+
+...    Cycles\\s*curr:[1-9]+[0-9]*,\\s*ave:[1-9]+[0-9]*
 ...    Done\\s*-\\s*exit
 
 @{do_not_match} =

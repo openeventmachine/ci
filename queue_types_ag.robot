@@ -9,7 +9,7 @@ Suite Teardown    Terminate All Processes    kill=True
 
 *** Variables ***
 @{match} =
-...    Stat\\s*Core-[0-9]+:\\s*Count/PairType\\s*A-A:\\s*[0-9]+\\s*P-P:\\s*[0-9]+\\s*PO-PO:\\s*[0-9]+\\s*P-A:\\s*[0-9]+\\s*PO-A:\\s*[0-9]+\\s*PO-P:\\s*[0-9]+\\s*AG-AG:\\s*[0-9]+\\s*AG-A:\\s*[0-9]+\\s*AG-P:\\s*[0-9]+\\s*AG-PO:\\s*[0-9]+\\s*cycles/event:[0-9]+\\s*@[0-9]+MHz\\s*[0-9]+
+...    Stat\\s*Core-[0-9]+:\\s*Count/PairType\\s*A-A:\\s*[1-9]+[0-9]*\\s*P-P:\\s*[1-9]+[0-9]*\\s*PO-PO:\\s*[1-9]+[0-9]*\\s*P-A:\\s*[1-9]+[0-9]*\\s*PO-A:\\s*[1-9]+[0-9]*\\s*PO-P:\\s*[1-9]+[0-9]*\\s*AG-AG:\\s*[1-9]+[0-9]*\\s*AG-A:\\s*[1-9]+[0-9]*\\s*AG-P:\\s*[1-9]+[0-9]*\\s*AG-PO:\\s*[1-9]+[0-9]*\\s*cycles/event:[1-9]+[0-9]*\\s*@[1-9]+[0-9]*MHz\\s*[0-9]+
 ...    Done\\s*-\\s*exit
 
 @{do_not_match} =

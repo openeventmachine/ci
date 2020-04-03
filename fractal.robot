@@ -12,7 +12,7 @@ Suite Teardown    Terminate All Processes    kill=True
 ...    Started\\s*Pixel\\s*handler\\s*-\\s*EO:0x[a-fA-F0-9]+\\.\\s*Q:0x[a-fA-F0-9]+\\.
 ...    Started\\s*Worker\\s*-\\s*EO:0x[a-fA-f0-9]+\\.\\s*Q:0x[a-fA-F0-9]+\\.
 ...    Started\\s*Imager\\s*-\\s*EO:0x[a-fA-f0-9]+\\.\\s*Q:0x[a-fA-f0-9]+\\.
-...    Frames\\s*per\\s*second:\\s*[0-9]+\\s*|\\s*frames\\s*[0-9]+\\s*-\\s*[0-9]+
+...    Frames\\s*per\\s*second:\\s*[1-9]+[0-9]*\\s*|\\s*frames\\s*[0-9]+\\s*-\\s*[1-9]+[0-9]*
 ...    Done\\s*-\\s*exit
 
 @{do_not_match} =

@@ -9,7 +9,7 @@ Suite Teardown    Terminate All Processes    kill=True
 
 *** Variables ***
 @{match} =
-...    cycles/event:\\s*[0-9]+\\.[0-9]+\\s*Mevents/s/core:\\s*[0-9]+\\.[0-9]+\\s*[0-9]+\\s*MHz\\s*core[0-9]+\\s*[0-9]+
+...    cycles/event:\\s*(?=.*[1-9])[0-9]+(\.[0-9]+)\\s*Mevents/s/core:\\s*(?=.*[1-9])[0-9]+(\.[0-9]+)\\s*[1-9]+[0-9]*\\s*MHz\\s*core[0-9]+\\s*[0-9]+
 ...    Done\\s*-\\s*exit
 
 @{do_not_match} =

@@ -9,8 +9,8 @@ Suite Teardown    Terminate All Processes    kill=True
 
 *** Variables ***
 @{match} =
-...    normal atomic processing:\\s*[0-9]+\\s*cycles/event\\s*events/s:[0-9]+\\.[0-9]+\\s*M\\s*@[0-9]+\\.[0-9]+\\s*MHz\\s*\\(core-[0-9]+\\s*[0-9]+\\)
-...    em_atomic_processing_end\\(\\):\\s*[0-9]+\\s*cycles/event\\s*events/s:[0-9]+\\.[0-9]+\\s*M\\s*@[0-9]+.[0-9]+\\s*MHz\\s*\\(core-[0-9]+\\s*[0-9]+\\)
+...    normal atomic processing:\\s*[1-9]+[0-9]*\\s*cycles/event\\s*events/s:(?=.*[1-9])[0-9]+(\.[0-9]+)\\s*M\\s*@(?=.*[1-9])[0-9]+(\.[0-9]+)\\s*MHz\\s*\\(core-[0-9]+\\s*[0-9]+\\)
+...    em_atomic_processing_end\\(\\):\\s*[1-9]+[0-9]*\\s*cycles/event\\s*events/s:(?=.*[1-9])[0-9]+(\.[0-9]+)\\s*M\\s*@(?=.*[1-9])[0-9]+(\.[0-9]+)\\s*MHz\\s*\\(core-[0-9]+\\s*[0-9]+\\)
 ...    Done\\s*-\\s*exit
 
 @{do_not_match} =

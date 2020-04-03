@@ -10,6 +10,7 @@ Suite Teardown    Terminate All Processes    kill=True
 *** Variables ***
 @{match} =
 ...    Hello world from EO [AB]\!\\s+My queue is 0x[0-9|A-F|a-f]+.\\s+I'm on core [0-9]+.\\s+Event seq is [0-9]+.
+...    Hello world from EO [AB]\!\\s+My queue is 0x[0-9|A-F|a-f]+.\\s+I'm on core [0-9]+.\\s+Event seq is [1-9]+.
 ...    Done\\s*-\\s*exit
 
 @{do_not_match} =

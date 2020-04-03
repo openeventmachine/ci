@@ -10,26 +10,24 @@ Suite Teardown    Terminate All Processes    kill=True
 *** Variables ***
 @{match} =
 ...    EO *
-...    Timer\: Creating [0-9]+ timeouts took [0-9]+ ns \\([0-9]+ ns each\\)
-...    Linux\: Creating [0-9]+ timeouts took [0-9]+ ns \\([0-9]+ ns each\\)
+...    Timer\: Creating [1-9]+[0-9]* timeouts took [1-9]+[0-9]* ns \\([1-9]+[0-9]* ns each\\)
+...    Linux\: Creating [1-9]+[0-9]* timeouts took [1-9]+[0-9]* ns \\([1-9]+[0-9]* ns each\\)
 ...    Running
-...    Heartbeat count [0-9]+
+...    Heartbeat count [1-9]+[0-9]*
 ...    ONESHOT\:
-...    Received: [0-9]+
+...    Received: [1-9]+[0-9]*
 ...    Cancelled\: [0-9]+
 ...    Cancel failed \\(too late\\)\: [0-9]+
-...    SUMMARY/TICKS: min [0-9]+, max [0-9]+, avg [0-9]+
-...    /[A-Z]S: min [0-9]+, max [0-9]+, avg [0-9]+
-...    SUMMARY/LINUX [A-Z]S: min -?[0-9]+, max -?[0-9]+, avg -?[0-9]+
+...    SUMMARY/TICKS: min [1-9]+[0-9]*, max [1-9]+[0-9]*, avg [1-9]+[0-9]*
+...    /[A-Z]S: min [1-9]+[0-9]*, max [1-9]+[0-9]*, avg [1-9]+[0-9]*
+...    SUMMARY/LINUX [A-Z]S: min [1-9]+[0-9]*, max [1-9]+[0-9]*, avg [1-9]+[0-9]*
 ...    PERIODIC\:
-...    Received\: [0-9]+
-...    Cancelled\: [0-9]+
 ...    Cancel failed \\(too late\\)\: [0-9]+
 ...    Errors\: [0-9]+
-...    TOTAL RUNTIME/[A-Z]S\: min [0-9]+, max [0-9]+
+...    TOTAL RUNTIME/[A-Z]S\: min [1-9]+[0-9]*, max [1-9]+[0-9]*
 ...    Cleaning up
-...    Timer\: Deleting [0-9]+ timeouts took [0-9]+ ns \\([0-9]+ ns each\\)
-...    Linux\: Deleting [0-9]+ timeouts took [0-9]+ ns \\([0-9]+ ns each\\)
+...    Timer\: Deleting [1-9]+[0-9]* timeouts took [1-9]+[0-9]* ns \\([1-9]+[0-9]* ns each\\)
+...    Linux\: Deleting [1-9]+[0-9]* timeouts took [1-9]+[0-9]* ns \\([1-9]+[0-9]* ns each\\)
 ...    Done\\s*-\\s*exit
 
 @{do_not_match} =

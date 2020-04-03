@@ -9,9 +9,11 @@ Suite Teardown    Terminate All Processes    kill=True
 
 *** Variables ***
 @{match} =
-...    Dispatcher\\s*enter\\s*callback\\s*[0-9]+\\s*for\\s*EO:\\s*0x[a-fA-F0-9]+\\s*\\(EO\\s*[a-fA-F0-9]+\\)\\s*Queue:\\s*0x[a-fA-F0-9]+\\s*on\\s*core\\s*[0-9]+\\.\\s*Event\\s*seq:\\s*[0-9]+\\.
+...    Dispatcher\\s*enter\\s*callback\\s*[1-2]+\\s*for\\s*EO:\\s*0x[a-fA-F0-9]+\\s*\\(EO\\s*[a-fA-F0-9]+\\)\\s*Queue:\\s*0x[a-fA-F0-9]+\\s*on\\s*core\\s*[0-9]+\\.\\s*Event\\s*seq:\\s*0\\.
+...    Dispatcher\\s*enter\\s*callback\\s*[1-2]+\\s*for\\s*EO:\\s*0x[a-fA-F0-9]+\\s*\\(EO\\s*[a-fA-F0-9]+\\)\\s*Queue:\\s*0x[a-fA-F0-9]+\\s*on\\s*core\\s*[0-9]+\\.\\s*Event\\s*seq:\\s*[0-9]+\\.
 ...    Ping\\s*from\\s*EO\\s*[a-fA-F]+!\\s*Queue:\\s*0x[a-fA-f0-9]+\\s*on\\s*core\\s*[0-9]+\\.\\s*Event\\s*seq:\\s*[0-9]+\\.
-...    Dispatcher\\s*exit\\s*callback\\s*[0-9]+\\s*for\\s*EO:\\s*0x[a-fA-f0-9]+
+...    Ping\\s*from\\s*EO\\s*[a-fA-F]+!\\s*Queue:\\s*0x[a-fA-f0-9]+\\s*on\\s*core\\s*[0-9]+\\.\\s*Event\\s*seq:\\s*[1-9]+\\.
+...    Dispatcher\\s*exit\\s*callback\\s*[1-2]+\\s*for\\s*EO:\\s*0x[a-fA-f0-9]+
 ...    Done\\s*-\\s*exit
 
 @{do_not_match} =
