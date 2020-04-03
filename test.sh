@@ -25,7 +25,16 @@ if [[ $(lscpu | grep aarch64) ]]; then
 fi
 
 # CI Variables
+for core_mask in ${@}; do
+  if [[ ${core_mask} =~ ^0x[0-9a-fA-F]+$ ]]; then
+    core_masks+=("$core_mask")
+  fi
+done
+
+if [[ -z ${core_masks} ]]; then
 core_masks=("0x3")
+fi
+
 modes=("t")
 declare -A apps
 
