@@ -20,26 +20,23 @@ Suite Teardown    Terminate All Processes    kill=True
 ...    Cancel failed \\(too late\\)\: [0-9]+
 ...    SUMMARY/TICKS: min [1-9]+[0-9]*, max [1-9]+[0-9]*, avg [1-9]+[0-9]*
 ...    /[A-Z]S: min [1-9]+[0-9]*, max [1-9]+[0-9]*, avg [1-9]+[0-9]*
-...    SUMMARY/LINUX [A-Z]S: min [1-9]+[0-9]*, max [1-9]+[0-9]*, avg [1-9]+[0-9]*
 ...    PERIODIC\:
 ...    Cancel failed \\(too late\\)\: [0-9]+
 ...    Errors\: [0-9]+
-...    TOTAL RUNTIME/[A-Z]S\: min [1-9]+[0-9]*, max [1-9]+[0-9]*
 ...    Cleaning up
 ...    Timer\: Deleting [1-9]+[0-9]* timeouts took [1-9]+[0-9]* ns \\([1-9]+[0-9]* ns each\\)
 ...    Linux\: Deleting [1-9]+[0-9]* timeouts took [1-9]+[0-9]* ns \\([1-9]+[0-9]* ns each\\)
-...    Done\\s*-\\s*exit
 
 @{do_not_match} =
 ...    EM ERROR
 
-@{rc_list} =    ${0}    ${-2}
+@{rc_list} =    ${0}    ${-2}    ${-9}
 
 *** Test Cases ***
 Test Timer
     [Documentation]    timer_test -c ${core_mask} -${mode}
     Start Process    ${application} ${SPACE} -c ${SPACE} ${core_mask} ${SPACE} -${mode}    stderr=STDOUT    shell=True    alias=app
-    Sleep    90s
+    Sleep    85s
 
     Send Signal To Process    SIGINT    app    group=true
     ${output} =    Wait For Process    app    timeout=5s    on_timeout=kill

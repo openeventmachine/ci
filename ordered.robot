@@ -10,19 +10,18 @@ Suite Teardown    Terminate All Processes    kill=True
 *** Variables ***
 @{match} =
 ...    cycles\\s*per\\s*event\\s*(?=.*[1-9])[0-9]+(\.[0-9]+)\\s*@(?=.*[1-9])[0-9]+(\.[0-9]+)\\s*MHz\\s*\\(core-[0-9]+\\s*[0-9]+\\)
-...    Done\\s*-\\s*exit
 
 @{do_not_match} =
 ...    Bad\\s*sequence\\s*nbr
 ...    EM ERROR
 
-@{rc_list} =    ${0}    ${-2}
+@{rc_list} =    ${0}    ${-2}    ${-9}
 
 *** Test Cases ***
 Test Ordered
     [Documentation]    ordered -c ${core_mask} -${mode}
     Start Process    ${application} ${SPACE} -c ${SPACE} ${core_mask} ${SPACE} -${mode}    stderr=STDOUT    shell=True    alias=app
-    Sleep    15s
+    Sleep    25s
 
     Send Signal To Process    SIGINT    app    group=true
     ${output} =    Wait For Process    app    timeout=5s    on_timeout=kill

@@ -14,13 +14,13 @@ Suite Teardown    Terminate All Processes    kill=True
 @{do_not_match} =
 ...    EM ERROR
 
-@{rc_list} =    ${0}    ${-2}
+@{rc_list} =    ${0}    ${-2}    ${-9}
 
 *** Test Cases ***
 Test Queue Groups
     [Documentation]    queue_groups -c ${core_mask} -${mode}
     Start Process    ${application} ${SPACE} -c ${SPACE} ${core_mask} ${SPACE} -${mode}    stderr=STDOUT    shell=True    alias=app
-    Sleep    15s
+    Sleep    25s
 
     Send Signal To Process    SIGINT    app    group=true
     ${output} =    Wait For Process    app    timeout=5s    on_timeout=kill

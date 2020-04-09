@@ -14,18 +14,17 @@ Suite Teardown    Terminate All Processes    kill=True
 ...    Ping\\s*from\\s*EO\\s*[a-fA-F]+!\\s*Queue:\\s*0x[a-fA-f0-9]+\\s*on\\s*core\\s*[0-9]+\\.\\s*Event\\s*seq:\\s*[0-9]+\\.
 ...    Ping\\s*from\\s*EO\\s*[a-fA-F]+!\\s*Queue:\\s*0x[a-fA-f0-9]+\\s*on\\s*core\\s*[0-9]+\\.\\s*Event\\s*seq:\\s*[1-9]+\\.
 ...    Dispatcher\\s*exit\\s*callback\\s*[1-2]+\\s*for\\s*EO:\\s*0x[a-fA-f0-9]+
-...    Done\\s*-\\s*exit
 
 @{do_not_match} =
 ...    EM ERROR
 
-@{rc_list} =    ${0}    ${-2}
+@{rc_list} =    ${0}    ${-2}    ${-9}
 
 *** Test Cases ***
 Test Dispatcher Callback
     [Documentation]    dispatcher_callback -c ${core_mask} -${mode}
     Start Process    ${application} ${SPACE} -c ${SPACE} ${core_mask} ${SPACE} -${mode}    stderr=STDOUT    shell=True    alias=app
-    Sleep    15s
+    Sleep    25s
 
     Send Signal To Process    SIGINT    app    group=true
     ${output} =    Wait For Process    app    timeout=5s    on_timeout=kill

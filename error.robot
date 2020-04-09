@@ -13,18 +13,17 @@ Suite Teardown    Terminate All Processes    kill=True
 ...    core:[0-9]+\\s*ecount:[1-9]+[0-9]*\\([1-9]+[0-9]*\\)\\s*event_machine_event.c:[0-9]+\\s*em_free\\(\\)
 ...    Error\\s*log\\s*from\\s*EO\\s*[a-fA-Z]+\\s*\\[[0-9]+\\]\\s*on\\s*core\\s*[0-9]+!
 ...    Appl\\s*EO\\s*specific\\s*error\\s*handler:\\s*EO\\s*0x[a-fA-Z0-9]+\\s*error\\s*0x[a-fA-Z0-9]+\\s*escope\\s*0x[a-fA-Z0-9]+
-...    Done\\s*-\\s*exit
 
 @{do_not_match} =
 ...    NO ERROR
 
-@{rc_list} =    ${0}    ${-2}
+@{rc_list} =    ${0}    ${-2}    ${-9}
 
 *** Test Cases ***
 Test Error
     [Documentation]    error -c ${core_mask} -${mode}
     Start Process    ${application} ${SPACE} -c ${SPACE} ${core_mask} ${SPACE} -${mode}    stderr=STDOUT    shell=True    alias=app
-    Sleep    15s
+    Sleep    25s
 
     Send Signal To Process    SIGINT    app    group=true
     ${output} =    Wait For Process    app    timeout=5s    on_timeout=kill

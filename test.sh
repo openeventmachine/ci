@@ -1,41 +1,26 @@
 #!/bin/bash
 set -e
 
-# x86_64
-if [[ $(lscpu | grep x86_64) ]]; then
-  # Hugepages
-  sudo sysctl -w vm.nr_hugepages=512
-  cat /proc/meminfo | grep Huge
-fi
+# Hugepages
+sudo sysctl -w vm.nr_hugepages=512
+cat /proc/meminfo | grep Huge
 
-# aarch64
-if [[ $(lscpu | grep aarch64) ]]; then
-  # No Hugepages
-  # https://travis-ci.community/t/huge-pages-support-within-lxd/5615/2
-
-  # Robot Framework Issue
-  # https://github.com/robotframework/robotframework/issues/2940
-  sed -i "s/-2/-9/" ci/event_group.robot
-  sed -i "s/-2/-9/" ci/event_group_chaining.robot
-  sed -i "/Done/d" ci/event_group.robot
-  sed -i "/Done/d" ci/event_group_chaining.robot
-
-  # Sleep Longer
-  sed -i "s/15s/30s/" ci/*.robot
-fi
-
-# CI Variables
+# Core Masks as Parameters
 for core_mask in ${@}; do
   if [[ ${core_mask} =~ ^0x[0-9a-fA-F]+$ ]]; then
     core_masks+=("$core_mask")
   fi
 done
 
+# Default Core Masks
 if [[ -z ${core_masks} ]]; then
 core_masks=("0x3")
 fi
 
+# Default Mode
 modes=("t")
+
+# Apps
 declare -A apps
 
 # Example Apps

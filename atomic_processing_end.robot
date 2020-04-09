@@ -11,18 +11,17 @@ Suite Teardown    Terminate All Processes    kill=True
 @{match} =
 ...    normal atomic processing:\\s*[1-9]+[0-9]*\\s*cycles/event\\s*events/s:(?=.*[1-9])[0-9]+(\.[0-9]+)\\s*M\\s*@(?=.*[1-9])[0-9]+(\.[0-9]+)\\s*MHz\\s*\\(core-[0-9]+\\s*[0-9]+\\)
 ...    em_atomic_processing_end\\(\\):\\s*[1-9]+[0-9]*\\s*cycles/event\\s*events/s:(?=.*[1-9])[0-9]+(\.[0-9]+)\\s*M\\s*@(?=.*[1-9])[0-9]+(\.[0-9]+)\\s*MHz\\s*\\(core-[0-9]+\\s*[0-9]+\\)
-...    Done\\s*-\\s*exit
 
 @{do_not_match} =
 ...    EM ERROR
 
-@{rc_list} =    ${0}    ${-2}
+@{rc_list} =    ${0}    ${-2}    ${-9}
 
 *** Test Cases ***
 Test Atomic Processing End
     [Documentation]    atomic_processing_end -c ${core_mask} -${mode}
     Start Process    ${application} ${SPACE} -c ${SPACE} ${core_mask} ${SPACE} -${mode}    stderr=STDOUT    shell=True    alias=app
-    Sleep    30s
+    Sleep    25s
 
     Send Signal To Process    SIGINT    app    group=true
     ${output} =    Wait For Process    app    timeout=5s    on_timeout=kill
