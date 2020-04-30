@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e
 
-# Hugepages
-sudo sysctl -w vm.nr_hugepages=512
-cat /proc/meminfo | grep Huge
-
 # Core Masks as Parameters
 for core_mask in ${@}; do
   if [[ ${core_mask} =~ ^0x[0-9a-fA-F]+$ ]]; then
