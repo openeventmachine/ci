@@ -17,8 +17,8 @@ Suite Teardown    Terminate All Processes    kill=True
 ...    Received: [1-9]+[0-9]*
 ...    Cancelled\: [0-9]+
 ...    Cancel failed \\(too late\\)\: [0-9]+
-...    SUMMARY/TICKS: min [1-9]+[0-9]*, max [1-9]+[0-9]*, avg [1-9]+[0-9]*
-...    /[A-Z]S: min [1-9]+[0-9]*, max [1-9]+[0-9]*, avg [1-9]+[0-9]*
+...    SUMMARY/TICKS: min [0-9]+, max [0-9]+, avg [0-9]+
+...    /[A-Z]S: min [0-9]+, max [0-9]+, avg [0-9]+
 ...    PERIODIC\:
 ...    Cancel failed \\(too late\\)\: [0-9]+
 ...    Errors\: [0-9]+
