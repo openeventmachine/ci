@@ -23,7 +23,7 @@ Suite Teardown    Terminate All Processes    kill=True
 ...    Cancel failed \\(too late\\)\: [0-9]+
 ...    Errors\: [0-9]+
 ...    Cleaning up
-...    Timer\: Deleting [1-9]+[0-9]* timeouts took [1-9]+[0-9]* ns \\([1-9]+[0-9]* ns each\\)
+...    Timer\: Deleting [1-9]+[0-9]* timeouts took [0-9]+ ns \\([0-9]+ ns each\\)
 ...    Linux\: Deleting [1-9]+[0-9]* timeouts took [1-9]+[0-9]* ns \\([1-9]+[0-9]* ns each\\)
 
 @{do_not_match} =
