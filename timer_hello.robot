@@ -10,14 +10,11 @@ Suite Teardown    Terminate All Processes    kill=True
 @{match} =
 ...    EO *
 ...    System has [1-9]+[0-9]* timer
-...    resolution. [1-9]+[0-9]* ns
-...    max_tmo. [1-9]+[0-9]* ms
-...    num_tmo. [1-9]+[0-9]*
-...    tick Hz. [1-9]+[0-9]* hz
 ...    EO local start
 ...    [1-9]+[0-9]*\. tick
 ...    tock
-...    Meditation time. what can you do in [1-9]+[0-9]* ms\?
+...    Meditation time.
+...    Done\\s*-\\s*exit
 
 @{do_not_match} =
 ...    EM ERROR
