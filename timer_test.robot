@@ -35,7 +35,7 @@ Test Timer
 
     # Run application
     Start Process    ${application} ${SPACE} -c ${SPACE} ${core_mask} ${SPACE} -${mode}    stderr=STDOUT    shell=True    alias=app
-    Sleep    85s
+    Sleep    90s
 
     # Terminate application
     Send Signal To Process    SIGINT    app    group=true
